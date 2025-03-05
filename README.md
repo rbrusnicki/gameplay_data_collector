@@ -2,6 +2,10 @@
 
 A Python-based tool for collecting and logging keyboard and mouse input data along with screen captures, specifically designed for behavioral cloning applications. This tool is ideal for gathering training data to teach AI models to mimic human gameplay patterns, user behavior studies, or input pattern recording.
 
+## Platform Compatibility
+
+**Important**: This version is specifically implemented for Windows operating systems. It uses Windows-specific APIs (via ctypes) to capture raw input events for more accurate and comprehensive data collection.
+
 ## What is Behavioral Cloning?
 
 Behavioral cloning is a technique where an AI model learns to perform tasks by imitating human demonstrations. This tool captures the necessary input data (keystrokes, mouse movements) and corresponding visual context (screenshots) that can be used to train machine learning models to replicate human behavior in games or other applications.
@@ -19,6 +23,7 @@ Behavioral cloning is a technique where an AI model learns to perform tasks by i
 
 ## Requirements
 
+- Windows operating system
 - Python 3.6+
 - Required packages:
   - `pynput`
@@ -98,6 +103,7 @@ These screenshots provide the visual context that can be paired with input actio
 
 ## Important Notes
 
+- This tool is designed specifically for Windows and uses Windows-specific APIs
 - The program creates a new log file for each session
 - The logger efficiently tracks key states to minimize log file size
 - Screenshots can consume significant disk space when enabled
