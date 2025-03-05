@@ -165,6 +165,9 @@ RI_MOUSE_RIGHT_BUTTON_UP = 8
 RI_MOUSE_MIDDLE_BUTTON_DOWN = 16
 RI_MOUSE_MIDDLE_BUTTON_UP = 32
 
+# Add RIDEV_INPUTSINK flag
+RIDEV_INPUTSINK = 0x00000100
+
 # Additional constants not always in win32con
 RID_INPUT = 0x10000003
 
@@ -298,14 +301,14 @@ def setup_raw_input(hwnd):
     raw_mouse = RAWINPUTDEVICE(
         usUsagePage=0x01,      # HID_USAGE_PAGE_GENERIC
         usUsage=0x02,          # HID_USAGE_GENERIC_MOUSE
-        dwFlags=0,             # No flags
+        dwFlags=RIDEV_INPUTSINK,  # Use RIDEV_INPUTSINK to receive input in background
         hwndTarget=hwnd        # Target window to receive input
     )
     
     raw_keyboard = RAWINPUTDEVICE(
         usUsagePage=0x01,      # HID_USAGE_PAGE_GENERIC
         usUsage=0x06,          # HID_USAGE_GENERIC_KEYBOARD
-        dwFlags=0,             # No flags
+        dwFlags=RIDEV_INPUTSINK,  # Use RIDEV_INPUTSINK to receive input in background
         hwndTarget=hwnd        # Target window to receive input
     )
     
